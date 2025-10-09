@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const mongoURL = process.env.MONGO_URI;
 
 const app = express();
 app.use(cors());
@@ -65,6 +66,11 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 });
+mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.log(err));
 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 // Start server
 app.listen(5000, () => console.log("🚀 Server running at http://localhost:5000"));
