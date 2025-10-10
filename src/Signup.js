@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -8,8 +8,17 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/signup", {
-      method: "POST",
+     const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "https://backend00-duzt.onrender.com/signup",
+        form
+      );
+      alert(res.data.message);
+    } catch (err) {
+      alert(err.response?.data?.message || "Signup failed");
+    }
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
     });
