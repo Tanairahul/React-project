@@ -4,30 +4,31 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // ✅ React Router ka useNavigate hook
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const response = await fetch("https://backend00-duzt.onrender.com/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
+      const data = await response.json();
 
-const data = await response.json();
-
-  if (response.ok) {
-    alert(data.message);   // ✅ "Login successful"
-    console.log("User:", data.user);
-    navigate("/Dashboard"); // ✅ Redirect to Dashboard page
-    // navigate("/dashboard") yaha redirect kar sakte ho
-  } else {
-    alert(data.error);     // ✅ "User not found" / "Invalid credentials"
-  }
-
-  
+      if (response.ok) {
+        alert(data.message || "Login successful");
+        console.log("User:", data.user);
+        navigate("/dashboard"); // Redirect to your Dashboard or Home page
+      } else {
+        alert(data.error || "Invalid credentials");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Server error. Please try again later.");
+    }
   };
 
   return (
