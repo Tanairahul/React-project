@@ -49,6 +49,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+              autoComplete="current-password"
         /><br /><br />
 
         <button type="submit">Login</button>
