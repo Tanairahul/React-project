@@ -10,7 +10,7 @@ function Login() {
   const backendURL =
     window.location.hostname === "localhost"
       ? "http://localhost:5000"
-      : "https://backend00-duzt.onrender.com/login"; // Replace with your Render URL
+      : "https://backend00-duzt.onrender.com"; // Replace with your Render URL
 
   const handleLogin = async (e) => {
     e.preventDefault();
