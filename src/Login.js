@@ -6,7 +6,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const backendURL = "https://backend01-nmuj.onrender.com";
+  const backendURL = "https://backend00-duzt.onrender.com";
 
   const handleLogin = async (e) => {
     e.preventDefault();
