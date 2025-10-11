@@ -44,7 +44,7 @@ const handleLogin = async (e) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-              autoComplete="current-password"
+              autoComplete="email"
         /><br /><br />
 
         <input
@@ -53,7 +53,7 @@ const handleLogin = async (e) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          autoComplete="current-password"
+          autoComplete="password"
         /><br /><br />
 
         <button type="submit">Login</button>
