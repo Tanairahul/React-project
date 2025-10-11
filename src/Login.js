@@ -47,6 +47,7 @@ function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+              autoComplete="current-password"
         /><br /><br />
 
         <input
