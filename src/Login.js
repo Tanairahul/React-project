@@ -7,34 +7,31 @@ function Login() {
   const navigate = useNavigate();
 
   // ✅ Backend URL auto detect
-  const backendURL =
-    window.location.hostname === "localhost"
-      ? "http://localhost:5000"
-      : "https://backend00-duzt.onrender.com/login"; // Replace with your Render URL
+const backendURL = "https://your-backend-name.onrender.com";
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch(`${backendURL}/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-    try {
-      const response = await fetch(`${backendURL}/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+    const data = await response.json();
 
-      const data = await response.json();
-
-      if (response.ok) {
-        alert(data.message || "Login successful");
-        console.log("User:", data.user);
-        navigate("/dashboard"); // Redirect to Dashboard
-      } else {
-        alert(data.error || "Invalid credentials");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Server error. Please try again later.");
+    if (response.ok) {
+      alert(data.message);
+      console.log("User:", data.user);
+      navigate("/dashboard");
+    } else {
+      alert(data.error);
     }
+  } catch (err) {
+    console.error("Fetch error:", err);
+    alert("Server unreachable. Check backend URL and CORS.");
+  }
+}
   };
 
   return (
