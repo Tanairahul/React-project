@@ -6,11 +6,17 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // ✅ Backend URL auto detect
+  const backendURL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : "https://backend00-duzt.onrender.com"; // Replace with your Render URL
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://backend00-duzt.onrender.com/login", {
+      const response = await fetch(`${backendURL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -21,7 +27,7 @@ function Login() {
       if (response.ok) {
         alert(data.message || "Login successful");
         console.log("User:", data.user);
-        navigate("/dashboard"); // Redirect to your Dashboard or Home page
+        navigate("/dashboard"); // Redirect to Dashboard
       } else {
         alert(data.error || "Invalid credentials");
       }
@@ -49,7 +55,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-              autoComplete="current-password"
+          autoComplete="current-password"
         /><br /><br />
 
         <button type="submit">Login</button>
