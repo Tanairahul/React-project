@@ -6,32 +6,30 @@ function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Backend URL auto detect
-const backendURL = "https://backend01-nmuj.onrender.com/login";
+  const backendURL = "https://backend01-nmuj.onrender.com";
 
-const handleLogin = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await fetch(`${backendURL}/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${backendURL}/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      alert(data.message);
-      console.log("User:", data.user);
-      navigate("/dashboard");
-    } else {
-      alert(data.error);
+      if (response.ok) {
+        alert(data.message);
+        console.log("User:", data.user);
+        navigate("/dashboard");
+      } else {
+        alert(data.error);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      alert("Server unreachable. Check backend URL and CORS.");
     }
-  } catch (err) {
-    console.error("Fetch error:", err);
-    alert("Server unreachable. Check backend URL and CORS.");
-  }
-}
   };
 
   return (
@@ -44,7 +42,7 @@ const handleLogin = async (e) => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-              autoComplete="email"
+          autoComplete="email"
         /><br /><br />
 
         <input
@@ -53,7 +51,7 @@ const handleLogin = async (e) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          autoComplete="password"
+          autoComplete="current-password"
         /><br /><br />
 
         <button type="submit">Login</button>
