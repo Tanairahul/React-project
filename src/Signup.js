@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
+
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-     const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const res = await axios.post(
         "https://backend00-duzt.onrender.com/signup",
-        form
+        { name, email, password }, // 👈 yahan data pass karo
+        {
+          headers: { "Content-Type": "application/json" },
+        }
       );
-      alert(res.data.message);
+
+      alert(res.data.message || "Signup successful!");
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed");
+      console.error(err);
     }
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
-    });
-
-    const data = await response.json();
-    alert(data.message || data.error);
   };
-  
 
   return (
     <div style={{ maxWidth: "400px", margin: "auto" }}>
@@ -35,7 +35,9 @@ function Signup() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-        /><br /><br />
+        />
+        <br />
+        <br />
 
         <input
           type="email"
@@ -43,7 +45,9 @@ function Signup() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-        /><br /><br />
+        />
+        <br />
+        <br />
 
         <input
           type="password"
@@ -51,7 +55,9 @@ function Signup() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-        /><br /><br />
+        />
+        <br />
+        <br />
 
         <button type="submit">Register</button>
       </form>
