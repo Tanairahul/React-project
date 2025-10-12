@@ -18,9 +18,9 @@ function Signup() {
         }
       );
 
-      alert(res.data.message || "Signup successful!");
+      alert(res.data.message || "please fill the instagram details");
     } catch (err) {
-      alert(err.response?.data?.message || "Signup failed");
+      alert(err.response?.data?.message || "fill insta details");
       console.error(err);
     }
   };
