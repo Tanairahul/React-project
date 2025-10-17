@@ -2,6 +2,7 @@
 import './App.css';
 import './index.css';
 //import rahul from "./rahul.jpeg"
+import'./tailwind.config.js';
 const projects = [
 {
 id: 1,
