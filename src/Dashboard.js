@@ -37,7 +37,7 @@ return (
 <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
 {/* NAV */}
 <header className="max-w-6xl mx-auto p-6 flex items-center justify-between">
-  <div className="bg-red-500 text-white p-4">Tailwind Test</div>
+
 <h1 className="text-2xl font-bold">Rahul Tanwar</h1>
 <nav className="space-x-4 hidden md:flex">
 <a href="#about" className="hover:underline">About</a>
