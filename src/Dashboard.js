@@ -8,7 +8,7 @@ const projects = [
 id: 1,
 title: 'Project One',
 desc: 'A short description of project one. Tech stack: React, Node.js',
-github: 'https://github.com/yourusername/project-one',
+github: 'https://tanairahul.github.io/React-project/',
 live: '#',
 img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60'
 },
@@ -16,7 +16,7 @@ img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&f
 id: 2,
 title: 'Project Two',
 desc: 'A short description of project two. Tech stack: React, Express',
-github: 'https://github.com/yourusername/project-two',
+github: 'https://tanairahul.github.io/project1/',
 live: '#',
 img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=60'
 },
@@ -24,7 +24,7 @@ img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&f
 id: 3,
 title: 'Project Three',
 desc: 'A short description of project three. Tech stack: HTML, CSS, JS',
-github: 'https://github.com/yourusername/project-three',
+github: 'https://tanairahul.github.io/project1/',
 live: '#',
 img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=60'
 }
