@@ -546,11 +546,10 @@ function Signup() {
             <p>
               Already have an account?
             </p>
-
-            <button
-              type="button"
-              onClick={() =>
-                (window.location.href = "/login")
+  <Link to="/login">
+    Login
+  </Link>
+                
               }
             >
               Login
