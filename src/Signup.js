@@ -531,10 +531,19 @@ function Signup() {
             <p>
               Already have an account?
             </p>
+        
+             <Link to="/login"> 
+              <button className="nav-login"> 
+                Login 
+    
+            </Link>  
 
-            <Link to="/login">
-              Login
-            </Link>
+
+              <Route
+            path="/login"
+            element={<Login />}
+          />
+
           </div>
 
         </div>
