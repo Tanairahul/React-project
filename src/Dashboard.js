@@ -1,12 +1,24 @@
 import React from "react";
 
 function Dashboard() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   const projects = [
     {
       title: "Online Driving Licence Registration System",
       description:
         "A full-stack web application for online driving licence registration, application management, payment and admin approval.",
-      technologies: "React • Node.js • Express • MongoDB • Razorpay",
+      technologies:
+        "React • Node.js • Express • MongoDB • Razorpay",
       image:
         "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80",
       link: "https://tanairahul.github.io/Online-driving-License/",
@@ -57,6 +69,7 @@ function Dashboard() {
 
         html {
           scroll-behavior: smooth;
+          scroll-padding-top: 85px;
         }
 
         body {
@@ -67,6 +80,10 @@ function Dashboard() {
 
         a {
           text-decoration: none;
+        }
+
+        button {
+          font-family: inherit;
         }
 
         .dashboard {
@@ -80,14 +97,17 @@ function Dashboard() {
         .navbar {
           position: sticky;
           top: 0;
-          z-index: 999;
+          left: 0;
+          z-index: 9999;
           width: 100%;
-          background: rgba(255, 255, 255, 0.94);
+          background: rgba(255, 255, 255, 0.96);
           backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
           border-bottom: 1px solid #e5e7eb;
         }
 
         .navbar-container {
+          width: 100%;
           max-width: 1180px;
           height: 72px;
           margin: auto;
@@ -101,6 +121,7 @@ function Dashboard() {
           color: #111827;
           font-size: 24px;
           font-weight: 800;
+          cursor: pointer;
         }
 
         .logo span {
@@ -113,28 +134,33 @@ function Dashboard() {
           gap: 28px;
         }
 
-        .nav-menu a {
+        .nav-link {
+          border: none;
+          outline: none;
+          background: transparent;
           color: #475569;
           font-size: 14px;
           font-weight: 600;
+          cursor: pointer;
           transition: 0.25s ease;
+          padding: 8px 2px;
         }
 
-        .nav-menu a:hover {
+        .nav-link:hover {
           color: #2563eb;
         }
 
         .nav-resume {
           color: white !important;
-          background: #2563eb;
-          padding: 10px 18px;
+          background: #2563eb !important;
+          padding: 10px 18px !important;
           border-radius: 8px;
           box-shadow: 0 7px 18px rgba(37, 99, 235, 0.22);
         }
 
         .nav-resume:hover {
           color: white !important;
-          background: #1d4ed8;
+          background: #1d4ed8 !important;
           transform: translateY(-2px);
         }
 
@@ -156,6 +182,7 @@ function Dashboard() {
               transparent 30%
             ),
             #f8fafc;
+          scroll-margin-top: 85px;
         }
 
         .hero-container {
@@ -223,6 +250,8 @@ function Dashboard() {
           font-size: 15px;
           font-weight: 700;
           transition: 0.25s ease;
+          cursor: pointer;
+          border: none;
         }
 
         .primary-button {
@@ -325,9 +354,14 @@ function Dashboard() {
         /* ================= COMMON SECTION ================= */
 
         .section {
+          width: 100%;
           max-width: 1180px;
           margin: auto;
           padding: 90px 25px;
+        }
+
+        .section-anchor {
+          scroll-margin-top: 85px;
         }
 
         .section-title {
@@ -527,6 +561,10 @@ function Dashboard() {
 
         /* ================= EDUCATION ================= */
 
+        .education-section {
+          background: #ffffff;
+        }
+
         .education-card {
           max-width: 800px;
           margin: auto;
@@ -674,7 +712,11 @@ function Dashboard() {
             font-size: 21px;
           }
 
-          .nav-menu a:not(.nav-resume) {
+          .nav-menu {
+            gap: 8px;
+          }
+
+          .nav-menu .nav-link:not(.nav-resume) {
             display: none;
           }
 
@@ -741,35 +783,74 @@ function Dashboard() {
         <header className="navbar">
           <div className="navbar-container">
 
-            <a href="#home" className="logo">
+            <button
+              className="logo"
+              onClick={() => scrollToSection("home")}
+              type="button"
+            >
               Rahul<span>.</span>
-            </a>
+            </button>
 
             <nav className="nav-menu">
-              <a href="#about">About</a>
 
-              <a href="#skills">Skills</a>
+              <button
+                className="nav-link"
+                onClick={() => scrollToSection("about")}
+                type="button"
+              >
+                About
+              </button>
 
-              <a href="#projects">Projects</a>
+              <button
+                className="nav-link"
+                onClick={() => scrollToSection("skills")}
+                type="button"
+              >
+                Skills
+              </button>
 
-              <a href="#education">Education</a>
+              <button
+                className="nav-link"
+                onClick={() => scrollToSection("projects")}
+                type="button"
+              >
+                Projects
+              </button>
 
-              <a href="#contact">Contact</a>
+              <button
+                className="nav-link"
+                onClick={() => scrollToSection("education")}
+                type="button"
+              >
+                Education
+              </button>
 
-              <a
-                href="#contact"
-                className="nav-resume"
+              <button
+                className="nav-link"
+                onClick={() => scrollToSection("contact")}
+                type="button"
+              >
+                Contact
+              </button>
+
+              <button
+                className="nav-link nav-resume"
+                onClick={() => scrollToSection("contact")}
+                type="button"
               >
                 Resume
-              </a>
-            </nav>
+              </button>
 
+            </nav>
           </div>
         </header>
 
         {/* ================= HERO ================= */}
 
-        <section id="home" className="hero">
+        <section
+          id="home"
+          className="hero section-anchor"
+        >
           <div className="hero-container">
 
             <div className="hero-content">
@@ -797,19 +878,21 @@ function Dashboard() {
 
               <div className="hero-buttons">
 
-                <a
-                  href="#projects"
+                <button
                   className="primary-button"
+                  onClick={() => scrollToSection("projects")}
+                  type="button"
                 >
                   View My Projects →
-                </a>
+                </button>
 
-                <a
-                  href="#contact"
+                <button
                   className="secondary-button"
+                  onClick={() => scrollToSection("contact")}
+                  type="button"
                 >
                   Contact Me
-                </a>
+                </button>
 
               </div>
 
@@ -856,9 +939,8 @@ function Dashboard() {
 
         <section
           id="about"
-          className="about-section"
+          className="about-section section-anchor"
         >
-
           <div className="section">
 
             <div className="section-title">
@@ -957,15 +1039,15 @@ function Dashboard() {
               </div>
 
             </div>
-
           </div>
-
         </section>
 
         {/* ================= SKILLS ================= */}
 
-        <section id="skills">
-
+        <section
+          id="skills"
+          className="section-anchor"
+        >
           <div className="section">
 
             <div className="section-title">
@@ -999,16 +1081,14 @@ function Dashboard() {
             </div>
 
           </div>
-
         </section>
 
         {/* ================= PROJECTS ================= */}
 
         <section
           id="projects"
-          className="projects-section"
+          className="projects-section section-anchor"
         >
-
           <div className="section">
 
             <div className="section-title">
@@ -1086,13 +1166,14 @@ function Dashboard() {
             </div>
 
           </div>
-
         </section>
 
         {/* ================= EDUCATION ================= */}
 
-        <section id="education">
-
+        <section
+          id="education"
+          className="education-section section-anchor"
+        >
           <div className="section">
 
             <div className="section-title">
@@ -1126,16 +1207,14 @@ function Dashboard() {
             </div>
 
           </div>
-
         </section>
 
         {/* ================= CONTACT ================= */}
 
         <section
           id="contact"
-          className="contact-section"
+          className="contact-section section-anchor"
         >
-
           <div className="section">
 
             <div className="contact-card">
@@ -1175,7 +1254,6 @@ function Dashboard() {
             </div>
 
           </div>
-
         </section>
 
         {/* ================= FOOTER ================= */}
