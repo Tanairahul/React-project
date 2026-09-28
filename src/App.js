@@ -1,16 +1,14 @@
-import React from 'react';
-import './App.css';
-import './index.css'; 
-import Home from './Home';
-import './tailwind.config.js'
+import React from "react";
+import "./App.css";
+import "./index.css";
+import Home from "./Home";
+
 function App() {
-  return (<>
-<div style:"text-align:"center">
-<Home/>
+  return (
+    <div style={{ textAlign: "center" }}>
+      <Home />
     </div>
-  
-  </>);
+  );
 }
 
 export default App;
-  
