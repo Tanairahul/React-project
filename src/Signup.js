@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import axios from "axios";
 
@@ -538,11 +538,12 @@ function Signup() {
     
             </Link>  
 
-
+<Routes>
               <Route
             path="/login"
             element={<Login />}
           />
+              </Routes>
 
           </div>
 
