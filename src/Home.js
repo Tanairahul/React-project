@@ -22,6 +22,7 @@ function LandingPage() {
         </p>
 
         <div className="hero-buttons">
+
           <Link to="/signup">
             <button className="primary-btn">
               Get Started
@@ -34,6 +35,7 @@ function LandingPage() {
               Sign In
             </button>
           </Link>
+
         </div>
 
         <div className="features">
@@ -65,9 +67,7 @@ function LandingPage() {
 
 function Home() {
   return (
-
-
-      {/* ================= CSS ================= */}
+    <>
       <style>{`
 
         * {
@@ -90,6 +90,7 @@ function Home() {
         .home-container {
           width: 100%;
           min-height: 100vh;
+
           background: linear-gradient(
             135deg,
             #f5f7ff 0%,
@@ -103,6 +104,7 @@ function Home() {
         .navbar {
           width: calc(100% - 40px);
           max-width: 1200px;
+
           margin: 20px auto;
           padding: 12px 20px;
 
@@ -111,6 +113,7 @@ function Home() {
           justify-content: space-between;
 
           background: #ffffff;
+
           border: 1px solid #e5e7eb;
           border-radius: 15px;
 
@@ -132,8 +135,11 @@ function Home() {
         .logo-image {
           width: 50px;
           height: 50px;
+
           object-fit: cover;
+
           border-radius: 12px;
+
           margin-right: 12px;
         }
 
@@ -153,6 +159,7 @@ function Home() {
 
         .nav-signup {
           padding: 10px 18px;
+
           border: 1px solid #667eea;
           border-radius: 8px;
 
@@ -163,17 +170,20 @@ function Home() {
           font-weight: 600;
 
           cursor: pointer;
+
           transition: all 0.3s ease;
         }
 
         .nav-signup:hover {
           background: #667eea;
           color: white;
+
           transform: translateY(-2px);
         }
 
         .nav-login {
           padding: 10px 20px;
+
           border: none;
           border-radius: 8px;
 
@@ -189,6 +199,7 @@ function Home() {
           font-weight: 600;
 
           cursor: pointer;
+
           transition: all 0.3s ease;
         }
 
@@ -405,6 +416,7 @@ function Home() {
           color: #888;
 
           font-size: 13px;
+
           line-height: 1.5;
         }
 
@@ -414,6 +426,7 @@ function Home() {
 
           .navbar {
             width: calc(100% - 24px);
+
             margin: 12px auto;
 
             padding: 10px 12px;
@@ -478,7 +491,6 @@ function Home() {
           .features {
             grid-template-columns: 1fr;
           }
-
         }
 
         @media (max-width: 400px) {
@@ -495,7 +507,6 @@ function Home() {
           .hero-card h1 {
             font-size: 25px;
           }
-
         }
 
       `}</style>
@@ -567,8 +578,7 @@ function Home() {
         </Routes>
 
       </div>
-
-   
+    </>
   );
 }
 
