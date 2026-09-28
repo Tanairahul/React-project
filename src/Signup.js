@@ -14,9 +14,15 @@ function Signup() {
     try {
       const res = await axios.post(
         "https://backend00-duzt.onrender.com/signup",
-        { name, email, password },
         {
-          headers: { "Content-Type": "application/json" },
+          name,
+          email,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 
@@ -25,6 +31,7 @@ function Signup() {
       setName("");
       setEmail("");
       setPassword("");
+      setShowPassword(false);
     } catch (err) {
       alert(
         err.response?.data?.message ||
@@ -38,9 +45,7 @@ function Signup() {
 
   return (
     <>
-      {/* ================= CSS ================= */}
       <style>{`
-
         * {
           box-sizing: border-box;
         }
@@ -344,12 +349,8 @@ function Signup() {
           font-size: 14px;
         }
 
-        .login-section button {
+        .login-section a {
           margin-left: 5px;
-
-          border: none;
-
-          background: transparent;
 
           color: #2563eb;
 
@@ -357,15 +358,18 @@ function Signup() {
 
           font-weight: 600;
 
+          text-decoration: none;
+
           cursor: pointer;
         }
 
-        .login-section button:hover {
+        .login-section a:hover {
           text-decoration: underline;
+
+          color: #1d4ed8;
         }
 
         @media (max-width: 500px) {
-
           .signup-page {
             padding: 20px 12px;
           }
@@ -387,18 +391,15 @@ function Signup() {
             font-size: 26px;
           }
         }
-
       `}</style>
 
       {/* ================= SIGNUP PAGE ================= */}
 
       <div className="signup-page">
-
         <div className="signup-card">
 
           {/* Header */}
           <div className="signup-header">
-
             <div className="signup-logo">
               👤
             </div>
@@ -408,7 +409,6 @@ function Signup() {
             <p>
               Sign up to get started with your account
             </p>
-
           </div>
 
           {/* Form */}
@@ -419,11 +419,9 @@ function Signup() {
 
             {/* Name */}
             <div className="input-group">
-
               <label>Full Name</label>
 
               <div className="input-wrapper">
-
                 <span className="input-icon">
                   👤
                 </span>
@@ -437,18 +435,14 @@ function Signup() {
                   }
                   required
                 />
-
               </div>
-
             </div>
 
             {/* Email */}
             <div className="input-group">
-
               <label>Email Address</label>
 
               <div className="input-wrapper">
-
                 <span className="input-icon">
                   ✉️
                 </span>
@@ -463,18 +457,14 @@ function Signup() {
                   required
                   autoComplete="email"
                 />
-
               </div>
-
             </div>
 
             {/* Password */}
             <div className="input-group">
-
               <label>Password</label>
 
               <div className="input-wrapper">
-
                 <span className="input-icon">
                   🔒
                 </span>
@@ -506,14 +496,11 @@ function Signup() {
                     ? "Hide"
                     : "Show"}
                 </button>
-
               </div>
-
             </div>
 
             {/* Terms */}
             <label className="terms">
-
               <input
                 type="checkbox"
                 required
@@ -522,10 +509,9 @@ function Signup() {
               <span>
                 I agree to the terms and conditions
               </span>
-
             </label>
 
-            {/* Button */}
+            {/* Signup Button */}
             <button
               type="submit"
               className="signup-button"
@@ -535,30 +521,22 @@ function Signup() {
               <span>
                 →
               </span>
-
             </button>
 
           </form>
 
-          {/* Login */}
+          {/* Login Section */}
           <div className="login-section">
-
             <p>
               Already have an account?
             </p>
-  <Link to="/login">
-    Login
-  </Link>
-                
-              }
-            >
-              Login
-            </button>
 
+            <Link to="/login">
+              Login
+            </Link>
           </div>
 
         </div>
-
       </div>
     </>
   );
