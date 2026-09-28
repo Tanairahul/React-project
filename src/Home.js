@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Routes, Route, HashRouter as Router } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import Signup from "./Signup";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
@@ -65,7 +65,7 @@ function LandingPage() {
 
 function Home() {
   return (
-    <Router>
+
 
       {/* ================= CSS ================= */}
       <style>{`
@@ -568,7 +568,7 @@ function Home() {
 
       </div>
 
-    </Router>
+   
   );
 }
 
